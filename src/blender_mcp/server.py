@@ -269,7 +269,7 @@ def get_object_info(ctx: Context, object_name: str) -> str:
 
 
 @mcp.tool()
-def create_object(
+def blender_create_object(
     ctx: Context,
     type: str = "CUBE",
     name: str = None,
@@ -355,7 +355,7 @@ def create_object(
 
 
 @mcp.tool()
-def modify_object(
+def blender_modify_object(
     ctx: Context,
     name: str,
     location: List[float] = None,
@@ -395,7 +395,7 @@ def modify_object(
         return f"Error modifying object: {str(e)}"
 
 @mcp.tool()
-def delete_object(ctx: Context, name: str) -> str:
+def blender_delete_object(ctx: Context, name: str) -> str:
     """
     Delete an object from the Blender scene.
     
@@ -413,7 +413,7 @@ def delete_object(ctx: Context, name: str) -> str:
         return f"Error deleting object: {str(e)}"
 
 @mcp.tool()
-def set_material(
+def blender_set_material(
     ctx: Context,
     object_name: str,
     material_name: str = None,
@@ -445,7 +445,7 @@ def set_material(
         return f"Error setting material: {str(e)}"
 
 @mcp.tool()
-def execute_blender_code(ctx: Context, code: str) -> str:
+def blender_execute_blender_code(ctx: Context, code: str) -> str:
     """
     Execute arbitrary Python code in Blender.
     
@@ -463,7 +463,7 @@ def execute_blender_code(ctx: Context, code: str) -> str:
         return f"Error executing code: {str(e)}"
 
 @mcp.tool()
-def get_polyhaven_categories(ctx: Context, asset_type: str = "hdris") -> str:
+def blender_get_polyhaven_categories(ctx: Context, asset_type: str = "hdris") -> str:
     """
     Get a list of categories for a specific asset type on Polyhaven.
     
@@ -495,7 +495,7 @@ def get_polyhaven_categories(ctx: Context, asset_type: str = "hdris") -> str:
         return f"Error getting Polyhaven categories: {str(e)}"
 
 @mcp.tool()
-def search_polyhaven_assets(
+def blender_search_polyhaven_assets(
     ctx: Context,
     asset_type: str = "all",
     categories: str = None
@@ -544,7 +544,7 @@ def search_polyhaven_assets(
         return f"Error searching Polyhaven assets: {str(e)}"
 
 @mcp.tool()
-def download_polyhaven_asset(
+def blender_download_polyhaven_asset(
     ctx: Context,
     asset_id: str,
     asset_type: str,
@@ -595,7 +595,7 @@ def download_polyhaven_asset(
         return f"Error downloading Polyhaven asset: {str(e)}"
 
 @mcp.tool()
-def set_texture(
+def blender_set_texture(
     ctx: Context,
     object_name: str,
     texture_id: str
@@ -655,7 +655,7 @@ def set_texture(
         return f"Error applying texture: {str(e)}"
 
 @mcp.tool()
-def get_polyhaven_status(ctx: Context) -> str:
+def blender_get_polyhaven_status(ctx: Context) -> str:
     """
     Check if PolyHaven integration is enabled in Blender.
     Returns a message indicating whether PolyHaven features are available.
@@ -672,7 +672,7 @@ def get_polyhaven_status(ctx: Context) -> str:
         return f"Error checking PolyHaven status: {str(e)}"
 
 @mcp.tool()
-def get_hyper3d_status(ctx: Context) -> str:
+def blender_get_hyper3d_status(ctx: Context) -> str:
     """
     Check if Hyper3D Rodin integration is enabled in Blender.
     Returns a message indicating whether Hyper3D Rodin features are available.
@@ -692,7 +692,7 @@ def get_hyper3d_status(ctx: Context) -> str:
         return f"Error checking Hyper3D status: {str(e)}"
 
 @mcp.tool()
-def generate_hyper3d_model_via_text(
+def blender_generate_hyper3d_model_via_text(
     ctx: Context,
     text_prompt: str,
     bbox_condition: list[float]=None
@@ -729,7 +729,7 @@ def generate_hyper3d_model_via_text(
     return f"Placeholder, under development, not implemented yet."
 
 @mcp.tool()
-def generate_hyper3d_model_via_images(
+def blender_generate_hyper3d_model_via_images(
     ctx: Context,
     input_image_paths: list[str]=None,
     input_image_urls: list[str]=None,
@@ -785,7 +785,7 @@ def generate_hyper3d_model_via_images(
         return f"Error generating Hyper3D task: {str(e)}"
 
 @mcp.tool()
-def poll_rodin_job_status(
+def blender_poll_rodin_job_status(
     ctx: Context,
     subscription_key: str=None,
     request_id: str=None,
@@ -828,7 +828,7 @@ def poll_rodin_job_status(
         return f"Error generating Hyper3D task: {str(e)}"
 
 @mcp.tool()
-def import_generated_asset(
+def blender_import_generated_asset(
     ctx: Context,
     name: str,
     task_uuid: str=None,
@@ -861,7 +861,7 @@ def import_generated_asset(
         return f"Error generating Hyper3D task: {str(e)}"
 
 @mcp.prompt()
-def asset_creation_strategy() -> str:
+def blender_asset_creation_strategy() -> str:
     """Defines the preferred strategy for creating assets in Blender"""
     return """When creating 3D content in Blender, always start by checking if integrations are available:
 
