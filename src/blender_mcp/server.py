@@ -236,7 +236,7 @@ def get_blender_connection():
 
 
 @mcp.tool()
-def blender_get_scene_info(ctx: Context) -> str:
+def get_scene_info(ctx: Context) -> str:
     """Get detailed information about the current Blender scene"""
     try:
         blender = get_blender_connection()
